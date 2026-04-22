@@ -4,7 +4,7 @@ from transformers import GPT2Tokenizer
 
 def calibrate_activations(model, num_batches=100):
     device = next(model.parameters()).device
-    dataset = load_dataset("EleutherAI/pile", split="train", streaming=True)
+    dataset = load_dataset("allenai/c4", "en", split="train", streaming=True)
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
     
     variances = {}
