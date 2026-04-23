@@ -71,9 +71,10 @@ class MatryoshkaHead(nn.Module):
         self.weight = nn.Parameter(torch.empty(config.vocab_size, config.d_model, device=config.device))
         nn.init.normal_(self.weight, std=0.02)
         
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # Just return the hidden states; projection will happen in the loss to save memory
-        return x
+    def forward(self, x: torch.Tensor, M=768) -> torch.Tensor:
+        # Slice the weights for MRL inference
+        weight_slice = self.weight[:, :M]
+        return F.linear(x[:, :, :M], weight_slice)
 
 class GhostTransformer(nn.Module):
     def __init__(self, config: ModelConfig):
@@ -103,7 +104,7 @@ class GhostTransformer(nn.Module):
             module.bias.data.zero_()
             module.weight.data.fill_(1.0)
 
-    def forward(self, idx: torch.Tensor) -> torch.Tensor:
+    def forward(self, idx: torch.Tensor, M=768) -> torch.Tensor:
         b, t = idx.size()
         assert t <= self.config.max_seq_len
         
@@ -173,7 +174,7 @@ class GhostTransformer(nn.Module):
                 x = residual + F.linear(x, mlp_proj_w)
             
         x = self.ln_f(x)
-        return self.head(x)
+        return self.head(x, M=M)
 
 def mrl_loss(hidden_states: torch.Tensor, targets: torch.Tensor, model: GhostTransformer) -> torch.Tensor:
     config = model.config

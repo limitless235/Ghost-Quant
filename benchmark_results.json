@@ -1,0 +1,74 @@
+{
+    "M_96": {
+        "tasks": {
+            "hellaswag": {
+                "alias": "hellaswag",
+                "acc,none": 0.2622983469428401,
+                "acc_stderr,none": 0.004389849907040485,
+                "acc_norm,none": 0.25184226249751046,
+                "acc_norm_stderr,none": 0.004331840012787794
+            },
+            "piqa": {
+                "alias": "piqa",
+                "acc,none": 0.5228509249183896,
+                "acc_stderr,none": 0.011653634832401168,
+                "acc_norm,none": 0.5130576713819369,
+                "acc_norm_stderr,none": 0.011661845375886444
+            },
+            "winogrande": {
+                "alias": "winogrande",
+                "acc,none": 0.5122336227308603,
+                "acc_stderr,none": 0.014048278820405729
+            }
+        },
+        "average_accuracy": 0.43246096486403
+    },
+    "M_384": {
+        "tasks": {
+            "hellaswag": {
+                "alias": "hellaswag",
+                "acc,none": 0.26160127464648475,
+                "acc_stderr,none": 0.004386083683839967,
+                "acc_norm,none": 0.253734315873332,
+                "acc_norm_stderr,none": 0.004342580277662561
+            },
+            "piqa": {
+                "alias": "piqa",
+                "acc,none": 0.529379760609358,
+                "acc_stderr,none": 0.01164566756505079,
+                "acc_norm,none": 0.5168661588683352,
+                "acc_norm_stderr,none": 0.011659185184878962
+            },
+            "winogrande": {
+                "alias": "winogrande",
+                "acc,none": 0.5059194948697711,
+                "acc_stderr,none": 0.014051500838485923
+            }
+        },
+        "average_accuracy": 0.43230017670853793
+    },
+    "M_768": {
+        "tasks": {
+            "hellaswag": {
+                "alias": "hellaswag",
+                "acc,none": 0.26160127464648475,
+                "acc_stderr,none": 0.004386083683839967,
+                "acc_norm,none": 0.25403306114319857,
+                "acc_norm_stderr,none": 0.004344266179634878
+            },
+            "piqa": {
+                "alias": "piqa",
+                "acc,none": 0.5277475516866159,
+                "acc_stderr,none": 0.011647846656062001,
+                "acc_norm,none": 0.5195865070729053,
+                "acc_norm_stderr,none": 0.01165686997928841
+            },
+            "winogrande": {
+                "alias": "winogrande",
+                "acc,none": 0.5098658247829518,
+                "acc_stderr,none": 0.014049749833367674
+            }
+        },
+        "average_accuracy": 0.4330715503720175
+    }
+}
